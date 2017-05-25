@@ -18,6 +18,9 @@
 | Variable "${arg1}" is correct
 | | Should be equal | ${arg1} | username is bob and password is superSecret!
 
+| Validate "${arg1}" calling another keyword
+| | Variable "${arg1}" is correct
+
 | Keywords below this keywords fail
 | | Log | another then keyword
 
@@ -34,4 +37,5 @@
 | | And Variable in the end continuous "value1" "value2"
 | | Then Variable "${output}" is correct
 | | Then Keywords below this keywords fail
+| | Then Validate "${output}" calling another keyword
 #| | Then Validate builtin with gherkin call
