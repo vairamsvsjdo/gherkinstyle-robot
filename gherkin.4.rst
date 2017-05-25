@@ -14,7 +14,6 @@
     | | And Variable in "value1" "value2" the middle continuous
     | | And Variable in the end continuous "value1" "value2"
     | | Then Variable "${output}" is correct
-    | | Then Keywords below this keywords fail
 
     | Example of how to use keyword with embedded arguments NOT working
     | | Given Todo "value1" expected
@@ -50,4 +49,4 @@
     | | Log | another then keyword
 
     | Validate builtin with gherkin call
-    | | Log "another then keyword"
+        Log "another then keyword"
