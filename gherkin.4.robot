@@ -29,7 +29,7 @@
 
 
 *** Test Cases ***
-| Example of how to use keyword with embedded arguments
+| Example of how to use keyword with embedded arguments working
 | | Given Todo "value1" expected
 | | ${output}= | When user "bob" is logged in with the following password: "superSecret!"
 | | And Variable at the end kw "value1"
@@ -38,4 +38,14 @@
 | | Then Variable "${output}" is correct
 | | Then Keywords below this keywords fail
 | | Then Validate "${output}" calling another keyword
-#| | Then Validate builtin with gherkin call
+
+| Example of how to use keyword with embedded arguments NOT working
+| | Given Todo "value1" expected
+| | ${output}= | When user "bob" is logged in with the following password: "superSecret!"
+| | And Variable at the end kw "value1"
+| | And Variable in "value1" "value2" the middle continuous
+| | And Variable in the end continuous "value1" "value2"
+| | Then Variable "${output}" is correct
+| | Then Keywords below this keywords fail
+| | Then Validate "${output}" calling another keyword
+| | Then Validate builtin with gherkin call
