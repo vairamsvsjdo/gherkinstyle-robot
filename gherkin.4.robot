@@ -41,5 +41,14 @@ Example of how to use keyword with embedded arguments working
     Then Variable "${output}" is correct
     Then Validate "${output}" calling another keyword
     Then Validate "${output}" calling another keyword at end
-    Then Validate builtin with gherkin call "successful"
     
+Example of how to use keyword with embedded arguments NOT working
+    Given Todo "value1" expected
+    ${output}=    When user "bob" is logged in with the following password: "superSecret!"
+    And Variable at the end kw "value1"
+    And Variable in "value1" "value2" the middle continuous
+    And Variable in the end continuous "value1" "value2"
+    Then Variable "${output}" is correct
+    Then Validate "${output}" calling another keyword
+    Then Validate "${output}" calling another keyword at end
+    Then Validate builtin with gherkin call "successful"
